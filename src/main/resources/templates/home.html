@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div>
+<div class="container-fluid mt-3" id="app">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-header">
+					최근 입사한 사원 리스트
+					<button class="btn btn-primary" type="button">신규등록</button>
+				</div>
+				<div class="card-body">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>사원번호</th>
+								<th>이름</th>
+								<th>이메일</th>
+								<th>전화번호</th>
+								<th>입사일</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr v-for="emp in employees">
+								<td>{{emp.id}}</td>
+								<td>{{emp.firstName}} {{emp.lastName}}</td>
+								<td>{{emp.email}}</td>
+								<td>{{emp.phoneNumber}}</td>
+								<td>{{emp.hireDate}}</td>
+								<td>
+									<button class="btn btn-danger btn-sm" type="button">삭제</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>			
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-sm-12">
+			<div class="card">
+				<div class="card-header">
+					직원상세정보
+					<button class="btn btn-primary" type="button" >닫기</button>
+				</div>
+				<div class="card-body">
+					<form>
+						<div class="form-row">
+							<div class="form-group col-sm-4">
+								<label>Job Id</label>
+								<select class="form-control">
+									<option value="">-</option>
+								</select>
+							</div>
+							<div class="form-group col-sm-4">
+								<label>Manager Id</label>
+								<select class="form-control">
+									<option value="">-</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-4">
+								<label>First Name</label>
+								<input type="text" class="form-control" />
+							</div>
+							<div class="form-group col-4">
+								<label>Last Name</label>
+								<input type="text" class="form-control" />
+							</div>
+							<div class="form-group col-4">
+								<label>Email</label>
+								<input type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-4">
+								<label>Phone Number</label>
+								<input type="text" class="form-control" />
+							</div>
+							<div class="form-group col-4">
+								<label>Salary</label>
+								<input type="text" class="form-control" />
+							</div>
+							<div class="form-group col-4">
+								<label>Commission PCT</label>
+								<input type="text" class="form-control" />
+							</div>
+						</div>
+						<div class="text-center">
+							<button class="btn btn-primary" type="button">확인</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+</div>
+<script src="/static/js/todoJs.js"></script>
+</body>
+</html>
