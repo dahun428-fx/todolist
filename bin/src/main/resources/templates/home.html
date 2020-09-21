@@ -30,8 +30,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr v-for="emp in employees"
-								@click="showEmployeeDetail(emp)">
+							<tr v-for="emp in employees">
 								<td>{{emp.id}}</td>
 								<td>{{emp.firstName}} {{emp.lastName}}</td>
 								<td>{{emp.email}}</td>
@@ -47,61 +46,55 @@
 			</div>			
 		</div>
 	</div>
-	<div class="row mt-3" v-show="isShowForm">
+	<div class="row mt-3">
 		<div class="col-sm-12">
 			<div class="card">
 				<div class="card-header">
 					직원상세정보
-					<button class="btn btn-primary" type="button" @click="closeForm()">닫기</button>
+					<button class="btn btn-primary" type="button" >닫기</button>
 				</div>
 				<div class="card-body">
 					<form>
 						<div class="form-row">
 							<div class="form-group col-sm-4">
-								<label>Department Id</label>
-								<select class="form-control" v-model="emp.departmentId">
-									<option v-for="dept in departments" :value="dept.id">{{dept.name}}</option>
-								</select>
-							</div>
-							<div class="form-group col-sm-4">
 								<label>Job Id</label>
-								<select class="form-control" v-model="emp.jobId">
-									<option v-for="job in jobs" :value="job.id">{{job.title}}</option>
+								<select class="form-control">
+									<option value="">-</option>
 								</select>
 							</div>
 							<div class="form-group col-sm-4">
 								<label>Manager Id</label>
-								<select class="form-control" v-model="emp.managerId">
-									<option v-for="manager in managers" :value="manager.id">{{manager.firstName}} {{manager.lastName}}</option>
+								<select class="form-control">
+									<option value="">-</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-4">
 								<label>First Name</label>
-								<input type="text" class="form-control" v-model="emp.firstName"/>
+								<input type="text" class="form-control" />
 							</div>
 							<div class="form-group col-4">
 								<label>Last Name</label>
-								<input type="text" class="form-control" v-model="emp.lastName"/>
+								<input type="text" class="form-control" />
 							</div>
 							<div class="form-group col-4">
 								<label>Email</label>
-								<input type="text" class="form-control" v-model="emp.email"/>
+								<input type="text" class="form-control" />
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-4">
 								<label>Phone Number</label>
-								<input type="text" class="form-control" v-model="emp.phoneNumber" />
+								<input type="text" class="form-control" />
 							</div>
 							<div class="form-group col-4">
 								<label>Salary</label>
-								<input type="text" class="form-control" v-model="emp.salary"/>
+								<input type="text" class="form-control" />
 							</div>
 							<div class="form-group col-4">
 								<label>Commission PCT</label>
-								<input type="text" class="form-control" v-model="emp.commissionPct"/>
+								<input type="text" class="form-control" />
 							</div>
 						</div>
 						<div class="text-center">
@@ -116,6 +109,6 @@
 	
 </div>
 </div>
-<script src="/static/js/main.js"></script>
+<script src="/static/js/todoJs.js"></script>
 </body>
 </html>

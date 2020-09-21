@@ -5,7 +5,6 @@
 <mapper namespace="com.example.demo.dao.EmployeeDao">
 
 	<select id="getEmployees" parameterType="int" resultType="com.example.demo.vo.Employee">
-		
 		select * 
 			from (
 			    select 
@@ -26,8 +25,44 @@
 			        employee_id desc
 			    )
 			where rownum  &lt;= #{value}
-
+	</select>
+	<select id="getManagers" resultType="com.example.demo.vo.Employee">
+		select
+			employee_id id,
+			first_name firstName,
+			last_name lastName,
+			email,
+			phone_number phoneNumber,
+			hire_date hireDate,
+			job_id jobId,
+			salary,
+			commission_pct commissionPct,
+			manager_id managerId,
+			department_id departmentId
+		from 
+			employees
+		where 
+			employee_id in (select distinct manager_id
+							from employees
+							where manager_id is not null)
+	</select>
+	<select id="getEmployee" parameterType="int" resultType="com.example.demo.vo.Employee">
+		select
+			employee_id id,
+			first_name firstName,
+			last_name lastName,
+			email,
+			phone_number phoneNumber,
+			hire_date hireDate,
+			job_id jobId,
+			salary,
+			commission_pct commissionPct,
+			manager_id managerId,
+			department_id departmentId
+		from 
+			employees
+		where 
+			employee_id in (#{value})
 	
 	</select>
-
 </mapper>	

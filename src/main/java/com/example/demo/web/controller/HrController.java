@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,6 +40,16 @@ public class HrController {
 	public List<Job> jobs(){
 		return jobService.getAllJobs();
 	}
+	@GetMapping("/managers")
+	public List<Employee> managers(){
+		return employeeService.getManagers();
+	}
+	@GetMapping("employee/{id}")
+	public Employee employee(@PathVariable("id") int id) {
+		return employeeService.getEmployee(id);
+	}
+	
+	
 	
 	
 }
