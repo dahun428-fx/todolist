@@ -50,8 +50,39 @@ var app = new Vue({
 			} else {
 				app.openForm();
 			}
-		}
+		},
+		insertEmployee:function(emp){
+			axios.post("/hr/employees", emp)
+			.then(function(response){
+				app.employees = response.data;
+				app.closeForm();
+			})
+		},
+		deleteEmployee:function(emp){
+			axios.delete("/hr/employees/"+emp.id)
+			.then(function(response){
+				app.employees = response.data;
+				app.closeForm();
+			})
+		},
+		updateEmployee:function(emp){
+			axios.put("/hr/employees/"+emp.id, emp)
+			.then(function(response){
+				app.employees = response.data;
+				app.closeForm();
+			})
+		},
+		confirmEmployee:function(emp){
+			console.log("before", emp)
+			console.log("before id", emp.id);
+			if(emp.id == null){console.log('null')}
+			if(emp.id == null){
+				app.insertEmployee(emp);
+			} else {
+				app.updateEmployee(emp);
+			}
 		
+		}
 	}
 	
 })

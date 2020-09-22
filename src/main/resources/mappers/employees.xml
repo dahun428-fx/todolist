@@ -65,4 +65,34 @@
 			employee_id in (#{value})
 	
 	</select>
+	<insert id="insertEmployee" parameterType="com.example.demo.vo.Employee">
+		insert into employees
+		(employee_id, first_name, last_name, email, phone_number, hire_date, job_id, salary, commission_pct, manager_id, department_id)
+		values
+		(employees_seq.nextval, #{firstName}, #{lastName}, #{email}, #{phoneNumber}, sysdate, #{jobId}, #{salary}, #{commissionPct}, #{managerId}, #{departmentId})
+	
+	</insert>
+	<delete id="deleteEmployee" parameterType="int">
+		delete from
+			employees
+		where
+			employee_id = #{value}
+	</delete>
+	<update id="updateEmployee" parameterType="com.example.demo.vo.Employee">
+		update employees
+		set
+			first_name = #{firstName},
+			last_name = #{lastName},
+			email = #{email},
+			phone_number = #{phoneNumber},
+			job_id = #{jobId},
+			salary = #{salary},
+			commission_pct = #{commissionPct},
+			manager_id = #{managerId},
+			department_id = #{departmentId}
+		where
+			employee_id = #{id}
+	</update>
+	
+	
 </mapper>	

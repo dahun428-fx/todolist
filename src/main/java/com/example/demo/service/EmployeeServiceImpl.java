@@ -27,6 +27,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 		employeeDao.insertEmployee(employee);
 	}
 	public void updateEmployee(Employee employee) {
+//		Employee savedEmployee = employeeDao.getEmployee(employee.getId());
+//		if(savedEmployee == null ) {
+//			new RuntimeException("존재하지 않는 직원입니다.");
+//		}
+//		
+		
 		employeeDao.updateEmployee(employee);
 	}
 	public void deleteEmployee(int id) {

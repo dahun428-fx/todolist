@@ -15,7 +15,7 @@
 			<div class="card">
 				<div class="card-header">
 					최근 입사한 사원 리스트
-					<button class="btn btn-primary" type="button">신규등록</button>
+					<button class="btn btn-primary btn-sm float-right" type="button" @click="toggleForm()">신규등록</button>
 				</div>
 				<div class="card-body">
 					<table class="table">
@@ -38,7 +38,8 @@
 								<td>{{emp.phoneNumber}}</td>
 								<td>{{emp.hireDate}}</td>
 								<td>
-									<button class="btn btn-danger btn-sm" type="button">삭제</button>
+									<button class="btn btn-danger btn-sm" type="button"
+										@click.stop="deleteEmployee(emp)">삭제</button>
 								</td>
 							</tr>
 						</tbody>
@@ -52,7 +53,7 @@
 			<div class="card">
 				<div class="card-header">
 					직원상세정보
-					<button class="btn btn-primary" type="button" @click="closeForm()">닫기</button>
+					<button class="btn btn-primary btn-sm float-right" type="button" @click="closeForm()">닫기</button>
 				</div>
 				<div class="card-body">
 					<form>
@@ -105,7 +106,8 @@
 							</div>
 						</div>
 						<div class="text-center">
-							<button class="btn btn-primary" type="button">확인</button>
+							<button class="btn btn-primary" type="button"
+								@click="confirmEmployee(emp)">확인</button>
 						</div>
 					</form>
 				</div>
